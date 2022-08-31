@@ -71,10 +71,14 @@ static const char *flameshot[]  = { "flameshot", "gui", NULL };
 static const char *flameshot_all[]  = { "flameshot", "screen", NULL };
 static const char *monBrightnessUp[]  = { "xbacklight", "-inc", "10", NULL };
 static const char *monBrightnessDown[]  = { "xbacklight", "-dec", "10", NULL };
+static const char *audioRaiseVolume[]  = { "pamixer", "--increase", "10", NULL };
+static const char *audioLowerVolume[]  = { "pamixer", "--decrease", "10", NULL };
 
 // /usr/include/X11/XF86keysym.h
 static const Key keys[] = {
 	/* modifier              key              function        argument */
+	{ 0,                     0x1008FF13,      spawn,          {.v = audioRaiseVolume } },
+	{ 0,                     0x1008FF11,      spawn,          {.v = audioLowerVolume } },
 	{ 0,                     0x1008FF02,      spawn,          {.v = monBrightnessUp } },
 	{ 0,                     0x1008FF03,      spawn,          {.v = monBrightnessDown } },
 	{ 0,                     XK_Print,        spawn,          {.v = flameshot } },
