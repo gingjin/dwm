@@ -73,10 +73,20 @@ static const char *monBrightnessUp[]  = { "xbacklight", "-inc", "10", NULL };
 static const char *monBrightnessDown[]  = { "xbacklight", "-dec", "10", NULL };
 static const char *audioRaiseVolume[]  = { "pamixer", "--increase", "10", NULL };
 static const char *audioLowerVolume[]  = { "pamixer", "--decrease", "10", NULL };
+static const char *audioPlay[]  = { "mpc", "play", NULL };
+static const char *audioPause[]  = { "mpc", "pause", NULL };
+static const char *audioStop[]  = { "mpc", "stop", NULL };
+static const char *audioPrev[]  = { "mpc", "prev", NULL };
+static const char *audioNext[]  = { "mpc", "next", NULL };
 
-// /usr/include/X11/XF86keysym.h
+// see xf86key on /usr/include/X11/XF86keysym.h
 static const Key keys[] = {
 	/* modifier              key              function        argument */
+	{ 0,                     0x1008FF14,      spawn,          {.v = audioPlay } },
+	{ 0,                     0x1008FF31,      spawn,          {.v = audioPause } },
+	{ 0,                     0x1008FF15,      spawn,          {.v = audioStop } },
+	{ 0,                     0x1008FF16,      spawn,          {.v = audioPrev } },
+	{ 0,                     0x1008FF17,      spawn,          {.v = audioNext } },
 	{ 0,                     0x1008FF13,      spawn,          {.v = audioRaiseVolume } },
 	{ 0,                     0x1008FF11,      spawn,          {.v = audioLowerVolume } },
 	{ 0,                     0x1008FF02,      spawn,          {.v = monBrightnessUp } },
