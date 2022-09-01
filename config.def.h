@@ -5,6 +5,7 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const Bool viewontag         = true;     /* Switch view on tag switch */
 static const char *fonts[]          = { "Iosevka Nerd Font:size=10", "Noto Sans CJK SC:size=10", "Symbols Nerd Font:size=10" };
 static const char dmenufont[]       = "Cascadia Code:size=10";
 static const char col_gray1[]       = "#222222";
