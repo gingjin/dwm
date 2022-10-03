@@ -6,8 +6,8 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
-static const char *fonts[]          = { "Iosevka Nerd Font:size=10", "Noto Sans CJK SC:size=10", "Symbols Nerd Font:size=10" };
-static const char dmenufont[]       = "Cascadia Code:size=10";
+static const char *fonts[]          = { "Monaco:size=10", "Noto Sans CJK SC:size=10", "Symbols Nerd Font:size=10" };
+static const char dmenufont[]       = "Monaco:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -48,7 +48,7 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "﬿",      tile },    /* first entry is default */
-	{ "",      NULL },    /* no layout function means floating behavior */
+	{ "",   NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
@@ -72,8 +72,8 @@ static const char *flameshot[]  = { "flameshot", "gui", NULL };
 static const char *flameshot_all[]  = { "flameshot", "screen", NULL };
 static const char *monBrightnessUp[]  = { "xbacklight", "-inc", "10", NULL };
 static const char *monBrightnessDown[]  = { "xbacklight", "-dec", "10", NULL };
-static const char *audioRaiseVolume[]  = { "pamixer", "--increase", "10", NULL };
-static const char *audioLowerVolume[]  = { "pamixer", "--decrease", "10", NULL };
+static const char *audioRaiseVolume[]  = { "pamixer", "-i", "10", NULL };
+static const char *audioLowerVolume[]  = { "pamixer", "-d", "10", NULL };
 static const char *audioPlay[]  = { "mpc", "play", NULL };
 static const char *audioPause[] = { "mpc", "pause", NULL };
 static const char *audioStop[]  = { "mpc", "stop", NULL };
@@ -83,8 +83,8 @@ static const char *audioNext[]  = { "mpc", "next", NULL };
 // see xf86key on /usr/include/X11/XF86keysym.h
 static const Key keys[] = {
 	/* modifier              key              function        argument */
-	{ 0,                     0x1008FF14,      spawn,          {.v = audioPlay } },
 	{ 0,                     0x1008FF31,      spawn,          {.v = audioPause } },
+	{ 0,                     0x1008FF14,      spawn,          {.v = audioPlay } },
 	{ 0,                     0x1008FF15,      spawn,          {.v = audioStop } },
 	{ 0,                     0x1008FF16,      spawn,          {.v = audioPrev } },
 	{ 0,                     0x1008FF17,      spawn,          {.v = audioNext } },
@@ -127,7 +127,6 @@ static const Key keys[] = {
 	TAGKEYS(                 XK_7,                            6)
 	TAGKEYS(                 XK_8,                            7)
 	TAGKEYS(                 XK_9,                            8)
-	// { MODKEY|ShiftMask,      XK_q,            quit,           {0} },
   { MODKEY|ShiftMask,      XK_q,            quitprompt,     {0} },
 };
 
